@@ -1,23 +1,23 @@
-import { Link, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { Navigation } from './components/Navigation';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import UserProfile from './pages/UserProfile';
 import NotFound from './pages/NotFound';
+import LeetCode from './pages/LeetCode';
 import './theme/astro-vista.css';
 
 function App() {
   return (
     <>
-      <nav>
-        <Link to="/">Home</Link> |<Link to="/about">About</Link> |
-        <Link to="/contact">Contact</Link> |<Link to="/user/1">Users</Link>
-      </nav>
+      <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/user/:id" element={<UserProfile />} />
+        <Route path="/leet" element={<LeetCode />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
