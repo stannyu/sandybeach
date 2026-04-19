@@ -1,26 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { getLongestUniqueSubstringLength } from '@/lib/longestSubstring';
 
 export function LongestSubstringWidget() {
   const [inputValue, setInputValue] = useState('');
-
-  const methodMy = (s) => {
-    let set = new Set();
-    let p = 0;
-    let res = 0;
-
-    for (let i = 0; i < s.length; i++) {
-      while (set.has(s[i])) {
-        set.delete(s[p]);
-        p++;
-      }
-
-      res = Math.max(res, i - p + 1);
-      set.add(s[i]);
-    }
-
-    return res;
-  };
 
   return (
     <div className="w-full">
@@ -56,7 +39,7 @@ export function LongestSubstringWidget() {
             </label>
             <div className="flex h-9 rounded-md border border-input bg-muted/50 px-3 py-1 items-center text-base">
               <span className="text-foreground font-medium">
-                {methodMy(inputValue)}
+                {getLongestUniqueSubstringLength(inputValue)}
               </span>
               <span className="text-muted-foreground ml-2 text-sm text-align-center">
                 longest substring without repeating characters
